@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class Storage
 {
 
-    private static String path = "F1Logger";
+    private static String path = "F1Logger/Application";
 
 
     public Storage()
@@ -18,6 +18,11 @@ public class Storage
 
     }
 
+    /**
+     *
+     * @param applicationName
+     * @throws IOException
+     */
     public void createPath(String applicationName) throws IOException
     {
         File f = new File(path);
