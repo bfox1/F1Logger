@@ -35,6 +35,13 @@ public class Storage
         f.createNewFile();
     }
 
+    /**
+     * Saves the Application process in a File Encrypted using Java Serialization. In other words, cannot be
+     * read by simply opening the File. Another TBD Method will be used to Interpret the File and convert it to String
+     * Text File
+     * @param app
+     * @return
+     */
     public boolean saveApplication(Application app)  {
 
         LinkedList<String> finalList = new LinkedList<>();
@@ -52,7 +59,6 @@ public class Storage
             }
             finalList.addAll(app.getStringArray());
             BufferedWriter s = new BufferedWriter(new FileWriter(new File(path,app.getName() + ".txt")));
-
 
 
             for(String logs : finalList)

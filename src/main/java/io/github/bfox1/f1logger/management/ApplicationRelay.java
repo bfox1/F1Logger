@@ -1,6 +1,7 @@
 package io.github.bfox1.f1logger.management;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -30,6 +31,8 @@ public class ApplicationRelay extends Thread
         {
             try
             {
+                System.out.println("Listening");
+                System.out.println(InetAddress.getLocalHost());
                 Socket s = serverClientSocket.accept();
 
                 new EchoThread(s);
@@ -41,11 +44,12 @@ public class ApplicationRelay extends Thread
 
             System.out.println("Logging Services have been Closed");
 
-            while(!flag)
+            while(flag)
             {
                 try
                 {
                     Thread.sleep(5000);
+                    System.out.println("Sleeping while services are closed.");
 
                     if(this.closeService)
                     {
